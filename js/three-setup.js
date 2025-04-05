@@ -152,3 +152,34 @@ window.addEventListener('load', () => {
     const threeScene = new ThreeScene();
 });
 
+// Performance optimization
+optimizePerformance() {
+    // Lower resolution for mobile devices
+    if (window.innerWidth < 768) {
+        this.renderer.setPixelRatio(1);
+        // Use simpler geometry
+        this.sphere.geometry = new THREE.SphereGeometry(2, 32, 32);
+    }
+    
+    // Check if device is low-performance
+    const isLowPerformance = () => {
+        // This is a basic check - you might want to implement more sophisticated detection
+        const fps = this.renderer.info.render.fps || 60;
+        return fps < 30;
+    };
+    
+    // Adjust quality based on performance
+    const adjustQuality = () => {
+        if (isLowPerformance()) {
+            this.renderer.setPixelRatio(1);
+            // Remove some stars to improve performance
+            if (this.stars && this.scene.children.includes(this.stars)) {
+                this.scene.remove(this.stars);
+            }
+        }
+    };
+    
+    // Check performance after 5 seconds
+    setTimeout(adjustQuality, 5000);
+}
+

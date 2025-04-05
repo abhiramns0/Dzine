@@ -26,6 +26,73 @@ body {
     z-index: 1000;
 }
 
+/* Media Queries */
+@media (max-width: 1024px) {
+    .section {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 20px;
+    }
+    
+    .menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.5s ease;
+    }
+    
+    .menu.active {
+        right: 0;
+    }
+    
+    .menu li {
+        margin: 20px 0;
+    }
+    
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        z-index: 101;
+    }
+    
+    h1 {
+        font-size: 3rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .content {
+        padding: 20px;
+    }
+}
+
+
 .loader-content {
     text-align: center;
 }

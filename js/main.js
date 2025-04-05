@@ -188,3 +188,12 @@ function populateProjects() {
 // Call function after page load
 window.addEventListener('load', populateProjects);
 
+// Add to main.js
+const hamburger = document.querySelector('.hamburger');
+const menu = document.querySelector('.menu');
+
+hamburger.addEventListener('click', () => {
+    menu.classList.toggle('active');
+});
+
+

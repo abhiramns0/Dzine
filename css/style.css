@@ -326,3 +326,19 @@ footer {
     opacity: 0.8;
 }
 
+/* Add to style.css */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.hamburger .line {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+}
+
+

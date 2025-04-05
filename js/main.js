@@ -124,3 +124,67 @@ document.addEventListener('DOMContentLoaded', () => {
     
     addChromaticEffect();
 });
+
+// Project data
+const projects = [
+    {
+        title: 'Project One',
+        description: 'Interactive 3D experience with fluid simulation',
+        image: 'assets/images/project1.jpg',
+        category: '3D Animation'
+    },
+    {
+        title: 'Project Two',
+        description: 'E-commerce platform with immersive product views',
+        image: 'assets/images/project2.jpg',
+        category: 'Web Development'
+    },
+    {
+        title: 'Project Three',
+        description: 'Mobile AR application for virtual try-on',
+        image: 'assets/images/project3.jpg',
+        category: 'Augmented Reality'
+    }
+];
+
+// Populate projects
+function populateProjects() {
+    const projectGrid = document.querySelector('.project-grid');
+    
+    projects.forEach(project => {
+        const projectElement = document.createElement('div');
+        projectElement.classList.add('project-item');
+        
+        projectElement.innerHTML = `
+            <div class="project-image">
+                <img src="${project.image}" alt="${project.title}">
+            </div>
+            <div class="project-info">
+                <h3>${project.title}</h3>
+                <span class="category">${project.category}</span>
+                <p>${project.description}</p>
+            </div>
+        `;
+        
+        projectGrid.appendChild(projectElement);
+        
+        // Add hover effect
+        gsap.set(projectElement, { opacity: 0, y: 30 });
+        gsap.to(projectElement, {
+            scrollTrigger: {
+                trigger: projectElement,
+                start: 'top 90%',
+                end: 'bottom 70%',
+                toggleActions: 'play none none reverse'
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power2.out'
+        });
+    });
+}
+
+// Call function after page load
+window.addEventListener('load', populateProjects);
+
